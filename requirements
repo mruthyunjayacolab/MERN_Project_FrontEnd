@@ -1,0 +1,2 @@
+nmp init
+npm i express
