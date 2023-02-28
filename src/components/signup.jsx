@@ -2,10 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Signup = () => {
     let navigate = useNavigate()
-
     let [name, setname] = useState('');
     let [email, setemail] = useState('');
     let [mobile, setmobile] = useState('');
@@ -14,7 +14,7 @@ const Signup = () => {
 
     let signUP = (e) => {
         e.preventDefault()
-        let data = { name, mobile,email, password, confirm_password }
+        let data = { name, mobile, email, password, confirm_password }
         console.log(data);
 
         if (name && email && (password == confirm_password)) {
@@ -34,38 +34,40 @@ const Signup = () => {
 
 
     return (
-        <div className="signup" onSubmit={signUP}>
+        <div className="sinup bg-primary-light d-flex justify-content-center  rounded">
+            <div className=" ms-1" >
 
-            <h1>SignUp</h1>
-            <div className="signUp_form">
-                <form action="">
-                    <div className="name form-group" >
-                        <input type="text"
-                            className="form-control"
-                            placeholder="Name"
-                            value={name} onChange={(e) => setname(e.target.value)} />
-                    </div>
-                    <div className="mobile form-group">
-                        <input type="mobile" placeholder="mobile" className="form-control " value={mobile} onChange={(e) => setmobile(e.target.value)} />
-                    </div>
-                    <div className="email form-group">
-                        <input type="email" placeholder="Email" className="form-control " value={email} onChange={(e) => setemail(e.target.value)} />
-                    </div>
-                    <div className="password form-group">
-                        <input type="password" placeholder="Password" className="form-control" value={password} onChange={(e) => setpassword(e.target.value)} />
-                    </div>
 
-                    <div className="confirm_password form-group">
-                        <input type="Conform_password" palceholder="Conform password" className="form-control" value={confirm_password} onChange={(e) => setconfirm_password(e.target.value)} />
-                    </div>
-                    <div className="signUp_button">
-                        <button className="btn btn btn-primary">Register</button>
-                    </div>
-                    <p></p>
-                    <div className="login_button">
-                        <Link to='/' className="btn btn-primary">Log In</Link>
-                    </div>
-                </form>
+                <div className="signUp_form  form-outline border border-primary p-3 m-2 rounded">
+                    <h1>SignUp</h1>
+                    <form action="" onSubmit={signUP} className="form-outline">
+                        <div className="name form-group ">
+                            <input type="text"
+                                className="form-control mb-2"
+                                placeholder="Name"
+                                value={name} onChange={(e) => setname(e.target.value)} />
+                        </div>
+                        <div className="mobile form-group  mb-2">
+                            <input type="mobile" placeholder="mobile" className="form-control " value={mobile} onChange={(e) => setmobile(e.target.value)} />
+                        </div>
+                        <div className="email form-group  mb-2">
+                            <input type="email" placeholder="Email" className="form-control " value={email} onChange={(e) => setemail(e.target.value)} />
+                        </div>
+                        <div className="password form-group  mb-2">
+                            <input type="password" placeholder="Password" className="form-control" value={password} onChange={(e) => setpassword(e.target.value)} />
+                        </div>
+
+                        <div className="confirm_password form-group  mb-2">
+                            <input type="password" placeholder=" ConformPassword" className="form-control" value={confirm_password} onChange={(e) => setconfirm_password(e.target.value)} />
+                        </div>
+                        <div className="signUp_button">
+                            <button className="btn btn btn-primary btn-floating mx-1 w-100">Register</button>
+                            <p>Already a user?</p>
+                            <Link to='/login' className="btn btn-primary btn-floating mx-1">Log In</Link>
+                        </div>
+                    </form>
+
+                </div>
             </div>
         </div>
     );
