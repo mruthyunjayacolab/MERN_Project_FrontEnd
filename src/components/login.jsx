@@ -5,11 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Login = () => {
 
-
     let [email, setemail] = useState('');
     let [password, setpassword] = useState('');
     let navigate = useNavigate()
-
 
     let loginform = (e) => {
 
@@ -20,16 +18,11 @@ const Login = () => {
 
                 if (res.data.message == 'login Seccessful') {
                     navigate("/home")
-                }
-                else {
+                } else {
                     alert(res.data.message)
                 }
             })
-
-
     }
-
-
     return (
 
         <div className="login d-flex justify-content-center mt-5">
